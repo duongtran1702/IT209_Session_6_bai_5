@@ -1,0 +1,18 @@
+[Unit]
+Description=Java Spring Boot Application Service
+After=network.target
+
+[Service]
+Type=simple
+User=java-runner
+Group=java-runner
+WorkingDirectory=/opt/java-app
+ExecStart=/opt/java-app/app-simulator.sh
+Restart=on-failure
+RestartSec=10s
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=java-app
+
+[Install]
+WantedBy=multi-user.target
